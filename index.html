@@ -106,7 +106,107 @@
   }
   .btn-primary:hover { background: var(--gray-600); transform: translateY(-1px); }
 
-  /* ── HERO ─────────────────────────────────────── */
+
+
+  /* ── TOP SIGNUP POP-UP ─────────────────────────── */
+  .top-signup-popup {
+    position: sticky;
+    top: 68px;
+    z-index: 99;
+    background: var(--black);
+    color: var(--white);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding: 14px 5vw;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  }
+
+  .top-signup-popup.is-hidden {
+    display: none;
+  }
+
+  .top-signup-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .top-signup-text {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    line-height: 1.45;
+    color: rgba(250,250,247,0.78);
+  }
+
+  .top-signup-text strong {
+    font-family: 'Syne', sans-serif;
+    color: var(--white);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .top-signup-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background: var(--yellow);
+    color: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-weight: 800;
+  }
+
+  .top-signup-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+
+  .top-signup-btn {
+    background: var(--yellow);
+    color: var(--black);
+    border: none;
+    border-radius: 100px;
+    padding: 10px 18px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: transform 0.15s, opacity 0.2s;
+  }
+
+  .top-signup-btn:hover {
+    transform: translateY(-1px);
+    opacity: 0.92;
+  }
+
+  .top-signup-close {
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 50%;
+    background: transparent;
+    color: rgba(250,250,247,0.68);
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 1;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .top-signup-close:hover {
+    color: var(--white);
+    border-color: rgba(255,255,255,0.34);
+  }
+
+    /* ── HERO ─────────────────────────────────────── */
   .hero {
     min-height: 92vh;
     display: grid;
@@ -885,6 +985,12 @@
     .about-layout { grid-template-columns: 1fr; }
     .about-visual { height: 240px; }
     nav .nav-links { display: none; }
+
+    .top-signup-popup { top: 68px; padding: 12px 5vw; }
+    .top-signup-inner { align-items: flex-start; }
+    .top-signup-text { font-size: 13px; align-items: flex-start; }
+    .top-signup-actions { flex-direction: column; align-items: stretch; }
+    .top-signup-btn { padding: 9px 14px; font-size: 13px; text-align: center; }
     .stats-bar { gap: 32px; }
   }
 </style>
@@ -911,6 +1017,23 @@
     <li><a href="#aanmelden" class="btn-primary">Op de hoogte blijven</a></li>
   </ul>
 </nav>
+
+<!-- TOP SIGNUP POP-UP -->
+<div class="top-signup-popup" id="top-signup-popup">
+  <div class="top-signup-inner">
+    <div class="top-signup-text">
+      <div class="top-signup-icon">✉</div>
+      <div>
+        <strong>Help ons Depos-it beter te maken.</strong>
+        Schrijf je in voor onze e-maillijst en denk mee over de ontwikkeling van ons product.
+      </div>
+    </div>
+    <div class="top-signup-actions">
+      <a href="#aanmelden" class="top-signup-btn">Inschrijven</a>
+      <button class="top-signup-close" type="button" aria-label="Melding sluiten" onclick="closeSignupPopup()">×</button>
+    </div>
+  </div>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -1207,6 +1330,12 @@
 </footer>
 
 <script>
+
+function closeSignupPopup() {
+  const popup = document.getElementById('top-signup-popup');
+  if (popup) popup.classList.add('is-hidden');
+}
+
 async function handleSignup(e) {
   e.preventDefault();
   const email = document.getElementById('email-input').value;
@@ -1234,3 +1363,4 @@ async function handleSignup(e) {
 </script>
 </body>
 </html>
+

@@ -993,6 +993,383 @@
     .top-signup-btn { padding: 9px 14px; font-size: 13px; text-align: center; }
     .stats-bar { gap: 32px; }
   }
+
+
+  /* ── RESPONSIVE FIXES / FLUID LAYOUT ───────────── */
+  img, svg {
+    max-width: 100%;
+  }
+
+  body {
+    overflow-wrap: anywhere;
+  }
+
+  nav,
+  .top-signup-popup,
+  .hero,
+  .stats-bar,
+  .section,
+  .product-section,
+  .qr-section,
+  .signup-section,
+  footer {
+    width: 100%;
+  }
+
+  nav {
+    gap: 24px;
+  }
+
+  .nav-links {
+    gap: clamp(16px, 2.2vw, 32px);
+  }
+
+  .hero {
+    grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.95fr);
+    gap: clamp(32px, 5vw, 72px);
+    padding-left: clamp(24px, 5vw, 88px);
+    padding-right: clamp(24px, 5vw, 88px);
+  }
+
+  .hero-content,
+  .hero-visual {
+    min-width: 0;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.7rem, 6vw, 5.5rem);
+    max-width: 760px;
+  }
+
+  .hero-sub {
+    max-width: 560px;
+  }
+
+  .hero-visual {
+    justify-self: center;
+    width: min(100%, 520px);
+    min-height: 460px;
+  }
+
+  .hero-product-card {
+    width: min(100%, 360px);
+    height: clamp(340px, 36vw, 420px);
+    z-index: 1;
+  }
+
+  .hero-badge {
+    top: 16px;
+    right: 0;
+    z-index: 2;
+    max-width: calc(100% - 24px);
+    white-space: normal;
+    text-align: center;
+  }
+
+  .section,
+  .product-section,
+  .qr-section,
+  .signup-section {
+    padding-left: clamp(24px, 5vw, 88px);
+    padding-right: clamp(24px, 5vw, 88px);
+  }
+
+  .problem-grid,
+  .qr-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  }
+
+  .product-layout,
+  .forwho-grid,
+  .about-layout {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .product-specs,
+  .forwho-card,
+  .problem-card,
+  .qr-card {
+    min-width: 0;
+  }
+
+  .spec-row {
+    gap: 16px;
+  }
+
+  .spec-key,
+  .spec-val {
+    min-width: 0;
+  }
+
+  @media (max-width: 1180px) {
+    .nav-links {
+      gap: 18px;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+    }
+
+    .btn-primary {
+      padding: 9px 16px;
+    }
+
+    .hero {
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 0.85fr);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5.8vw, 4.6rem);
+    }
+  }
+
+  @media (max-width: 980px) {
+    nav {
+      height: auto;
+      min-height: 68px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+
+    .nav-links {
+      display: none;
+    }
+
+    .top-signup-popup {
+      top: 68px;
+    }
+
+    .top-signup-inner {
+      align-items: flex-start;
+    }
+
+    .top-signup-actions {
+      align-self: center;
+    }
+
+    .hero {
+      grid-template-columns: 1fr;
+      min-height: auto;
+      padding-top: 64px;
+      padding-bottom: 64px;
+      text-align: left;
+    }
+
+    .hero-visual {
+      width: min(100%, 440px);
+      min-height: 420px;
+      justify-self: start;
+    }
+
+    .hero-badge {
+      right: 12px;
+    }
+
+    .product-layout,
+    .forwho-grid,
+    .about-layout {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .about-visual {
+      height: 280px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    body {
+      font-size: 15px;
+    }
+
+    nav {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .nav-logo-icon {
+      width: 32px;
+      height: 32px;
+    }
+
+    .nav-logo-text {
+      font-size: 18px;
+    }
+
+    .top-signup-popup {
+      position: relative;
+      top: 0;
+      padding: 14px 20px;
+    }
+
+    .top-signup-inner {
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .top-signup-text {
+      align-items: flex-start;
+      font-size: 13px;
+    }
+
+    .top-signup-actions {
+      width: 100%;
+      flex-direction: row;
+      align-self: stretch;
+    }
+
+    .top-signup-btn {
+      flex: 1;
+      text-align: center;
+    }
+
+    .top-signup-close {
+      flex: 0 0 38px;
+      width: 38px;
+      height: 38px;
+    }
+
+    .hero {
+      padding: 44px 20px 52px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.25rem, 13vw, 3.5rem);
+      margin-bottom: 18px;
+    }
+
+    .hero-sub {
+      font-size: 16px;
+      margin-bottom: 28px;
+    }
+
+    .hero-cta {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .btn-large,
+    .btn-outline {
+      width: 100%;
+      text-align: center;
+    }
+
+    .hero-visual {
+      display: flex;
+      width: 100%;
+      min-height: auto;
+      margin-top: 18px;
+    }
+
+    .hero-product-card {
+      width: 100%;
+      max-width: 330px;
+      height: 340px;
+      padding: 30px;
+    }
+
+    .hero-badge {
+      position: static;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+
+    .hero-visual {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .stats-bar {
+      padding: 34px 20px;
+      flex-direction: column;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .stat-item {
+      max-width: 260px;
+    }
+
+    .section,
+    .product-section,
+    .qr-section,
+    .signup-section {
+      padding: 64px 20px;
+    }
+
+    .section-title {
+      font-size: clamp(1.85rem, 9vw, 2.5rem);
+    }
+
+    .section-sub {
+      font-size: 16px;
+      margin-bottom: 34px;
+    }
+
+    .problem-grid,
+    .qr-grid {
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .problem-card,
+    .qr-card,
+    .forwho-card,
+    .product-specs {
+      padding: 26px 22px;
+    }
+
+    .product-step {
+      gap: 14px;
+    }
+
+    .spec-row {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .signup-form {
+      flex-direction: column;
+      max-width: 100%;
+    }
+
+    .signup-form input[type="email"],
+    .btn-yellow {
+      width: 100%;
+    }
+
+    footer {
+      padding: 32px 20px;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .hero h1 {
+      font-size: 2.05rem;
+    }
+
+    .top-signup-text {
+      gap: 10px;
+    }
+
+    .top-signup-icon {
+      width: 30px;
+      height: 30px;
+    }
+
+    .product-icon-wrap {
+      width: 84px;
+      height: 84px;
+    }
+
+    .hero-product-card {
+      height: 310px;
+    }
+  }
+
 </style>
 </head>
 <body>
@@ -1363,4 +1740,3 @@ async function handleSignup(e) {
 </script>
 </body>
 </html>
-
